@@ -24,8 +24,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-
-                        <a class="nav-link {{ Route::is('home') ? 'active' : '' }}" aria-current="page" href="{{ route('home') }}">Home</a>
+                        <a class="nav-link {{ Route::is('home') ? 'active' : '' }}" aria-current="page" 
+                            href="{{ route('home') }}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ Route::is('crochets') ? 'active' : '' }}"
@@ -35,7 +35,12 @@
                         <a class="nav-link {{ Route::is('users') ? 'active' : '' }}" href="{{ route('users') }}">Accounts</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search" method="GET">
+                @if (Route::is('crochets'))
+                <form class="d-flex" role="search" action="{{ route('crochets')}}" method="GET">
+                    @else
+                <form class="d-flex" role="search" method="GET" action="{{ route('users')}}">
+                        @endif
+
                     <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>

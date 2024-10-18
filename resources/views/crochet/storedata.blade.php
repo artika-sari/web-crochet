@@ -35,7 +35,7 @@
                         <td class="{{ $item['stock'] <= 3 ? 'bg-danger text-white' : '' }}"
                             onclick="editStockModal('{{$item->id}}','{{$item->stock}}')">{{ $item['stock'] }}</td>
                         <td class="d-flex justify-content-center py-1 gap-2">
-                            <a href="{{ route('crochets.edit', $item['id']) }}" class="btn btn-link btn-sm btn-rounded">Edit</a>
+                            <a href="{{ route('crochets.edit', $item['id']) }}" class="btn btn-primary">Edit</a>
                             <button type="submit" class="btn btn-danger" onclick="showModal('{{$item->id}}', '{{$item->name}}')">Delete</button>
                         </td>
                     </tr>
