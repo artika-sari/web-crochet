@@ -54,7 +54,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        Are you sure you want to delete <span id="name-crochet"></span> data
+                        Are you sure you want to delete <span id="name-user"></span> data
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -76,7 +76,7 @@ integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="ano
         action = action.replace(':id', id);
         $('#form-delete-user').attr('action', action);
         $('#exampleModal').modal('show');
-        $('#nama-user'). text(name);
+        $('#name-user'). text(name);
     }
 </script>
 @endpush
