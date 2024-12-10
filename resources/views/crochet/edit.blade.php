@@ -40,6 +40,6 @@
                 <small class="text-danger">{{ $message }}</small>
             @enderror
         </div>
-        <button type="submit" class="btn btn-success m-3">Send Data</button>
+        <button type="submit" class="btn btn-dark m-3">Send Data</button>
     </form>
 @endsection

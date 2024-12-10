@@ -39,6 +39,6 @@
                 <small class="text-danger">{{ $message }}</small>
             @enderror
         </div>
-        <button type="submit" class="btn btn-success mt-3">Send Data</button>
+        <button type="submit" class="btn btn-dark mt-3">Send Data</button>
     </form>
 @endsection

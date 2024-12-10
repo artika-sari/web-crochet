@@ -4,7 +4,7 @@
 <div class="container my-5">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2>Crochets List</h2>
-        <a href="{{ route('crochets.add') }}" class="btn btn-success">+ Add List</a>
+        <a href="{{ route('crochets.add') }}" class="btn btn-dark">+ Add List</a>
     </div>
 
     @if (Session::has('success'))
@@ -13,7 +13,7 @@
         </div>
     @endif
 
-    <table class="table table-bordered table-striped text-center" style="border: 2px solid #000; cursor:default">
+    <table class="table table-striped text-center" style="cursor:default">
         <thead class="thead-dark">
             <tr>
                 <th>No</th>
@@ -35,7 +35,7 @@
                         <td class="{{ $item['stock'] <= 3 ? 'bg-danger text-white' : '' }}"
                             onclick="editStockModal('{{$item->id}}','{{$item->stock}}')">{{ $item['stock'] }}</td>
                         <td class="d-flex justify-content-center py-1 gap-2">
-                            <a href="{{ route('crochets.edit', $item['id']) }}" class="btn btn-primary">Edit</a>
+                            <a href="{{ route('crochets.edit', $item['id']) }}" class="btn btn-secondary">Edit</a>
                             <button type="submit" class="btn btn-danger" onclick="showModal('{{$item->id}}', '{{$item->name}}')">Delete</button>
                         </td>
                     </tr>

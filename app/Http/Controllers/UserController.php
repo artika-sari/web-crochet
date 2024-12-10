@@ -5,12 +5,36 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+    public function login() {
+        return view('login');
+    }
+
+    public function loginAuth(Request $request) {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        $user = $request->only(['email', 'password']);
+        if (Auth::attempt($user)) {
+            return redirect()->route('home');
+        } else {
+            return redirect()->back()->with('failed', 'Login failed, please try again later');
+        }
+    }
+
+    public function logout() {
+        Auth::logout();
+        return redirect()->route('login')->with('success', 'You have successfully logged out!');
+    }
+
     public function index(Request $request)
     {
         $user = User::where('name', 'LIKE', '%' . $request->search . '%')->simplePaginate(5);

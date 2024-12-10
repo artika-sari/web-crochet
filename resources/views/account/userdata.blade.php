@@ -4,7 +4,7 @@
     <div class="container my-5">
         <div class="d-flex justify-content-between align-item-center mb-3">
             <h2>Management Accounts</h2>
-            <a href="{{ route('users.add') }} " class="btn btn-success">+ Add Account</a>
+            <a href="{{ route('users.add') }} " class="btn btn-dark">+ Add Account</a>
         </div>
 
         @if (Session::has('success'))
@@ -13,7 +13,7 @@
             </div>
         @endif
 
-        <table class="table table-bordered table-striped text-center" style="border: 2px solid #000; cursor: default:">
+        <table class="table table-striped text-center" style="cursor: default:">
             <thead class="thead-dark">
                 <tr>
                     <th>No</th>
@@ -32,7 +32,7 @@
                             <td> {{ $item['email'] }} </td>
                             <td> {{ $item['role'] }} </td>
                             <td>
-                                <a href="{{ route('users.edit', $item['id']) }}" class="btn btn-primary">Edit</a>
+                                <a href="{{ route('users.edit', $item['id']) }}" class="btn btn-secondary">Edit</a>
                                 <a class="btn btn-danger" onclick="showModal( '{{ $item-> id }}', '{{ $item->name }}' )">Delete</a>
                             </td>
                         </tr>

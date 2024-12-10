@@ -37,7 +37,7 @@
                 <label for="stock" class="form-label">Stock</label>
                 <input type="number" name= "stock" id="stock" class="form-control" value="{{ old('stock')}}">
             </div>
-            <button class="btn btn-success mt-3">Send Data</button>
+            <button class="btn btn-dark mt-3">Send Data</button>
         </form>
         </div>
         </form>

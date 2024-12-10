@@ -16,4 +16,9 @@ class Order extends Model
     protected $casts = [
         'crochets' => 'array'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

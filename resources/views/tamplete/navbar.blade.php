@@ -12,8 +12,8 @@
 </head>
 
 
-<body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+<body style="background-color: #EEEEEE">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="backround-color: #184A45FF">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Crochet Store</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -24,27 +24,43 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
+                        @if (Auth::check())
+                            
                         <a class="nav-link {{ Route::is('home') ? 'active' : '' }}" aria-current="page" 
-                            href="{{ route('home') }}">Home</a>
+                        href="{{ route('home') }}">Home</a>
                     </li>
+                    @if (Auth::user()->role == 'admin')
                     <li class="nav-item">
                         <a class="nav-link {{ Route::is('crochets') ? 'active' : '' }}"
-                            href="{{ route('crochets') }}">Store Data</a>
+                        href="{{ route('crochets') }}">Store Data</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ Route::is('users') ? 'active' : '' }}" href="{{ route('users') }}">Accounts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('orders.admin') }}" class="nav-link">Purchase Data</a>
+                    </li>
+                    @endif
+                    @if (Auth::user()->role == 'customer')
+                        <li class="nav-item">
+                            <a href="{{ route('orders') }}" class="nav-link">Purchase</a>
+                        </li>
+                    @endif
+                    <li class="nav-item">
+                        <a href="{{ route('logout') }}" class="nav-link">Logout</a>
                     </li>
                 </ul>
                 @if (Route::is('crochets'))
                 <form class="d-flex" role="search" action="{{ route('crochets')}}" method="GET">
                     @else
-                <form class="d-flex" role="search" method="GET" action="{{ route('users')}}">
+                    <form class="d-flex" role="search" method="GET" action="{{ route('users')}}">
                         @endif
-
-                    <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
+                        
+                        <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="search">
+                        <button class="btn btn-outline-dark" type="submit">Search</button>
+                    </form>
+                    @endif
+                </div>
         </div>
     </nav>
 

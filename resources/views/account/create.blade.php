@@ -38,7 +38,7 @@
                 <input type="text" name="password" id="password" class="form-control" value="{{ old('password') }}">
             </div>
 
-            <button class="btn btn-success mt-3">Send Data</button>
+            <button class="btn btn-dark mt-3">Send Data</button>
         </form>
     </div>
 @endsection

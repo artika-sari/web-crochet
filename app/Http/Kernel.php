@@ -64,5 +64,10 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'isLogin' => \App\Http\Middleware\isLogin::class,
+        'isGuest' => \App\Http\Middleware\isGuest::class,
+        'isAdmin' => \App\Http\Middleware\isAdmin::class,
+        'isCust' => \App\Http\Middleware\isCust::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class, 
     ];
 }
